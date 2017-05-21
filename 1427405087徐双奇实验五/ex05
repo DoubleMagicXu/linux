@@ -1,0 +1,8 @@
+#!/usr/bin/awk -f
+$3>0 {print $1, $2*$3}
+$3>15 {emp=emp+1}
+END {print emp,"employees worked more than 15 hours"}
+{nc =nc+length($0)+1
+ nw=nw+NF
+}
+END {print NR,"lines,",nw,"words,",nc,"characters"}

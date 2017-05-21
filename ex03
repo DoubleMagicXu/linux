@@ -1,0 +1,38 @@
+#!/bin/bash
+date
+who
+echo -e  "\n"
+myname=$(echo "Hello,world")
+echo -e "$myname\n"
+anyname=$myname
+readonly anyname
+unset myname
+unset anyname
+for arg in "$@"
+do
+    echo $arg
+done
+
+shift 2
+echo -e "*****\n"
+for arg in "$@"
+do
+    echo $arg
+done
+
+if [ $# -eq 1 ] ;
+then
+    if [ -f "$1" ];
+    then
+        ls -l | grep $1
+    else
+        echo -e  "$1不是一个文件!\n"
+    fi
+
+elif [ $# -gt 1 ];
+then
+    echo -e "参数太多!\n"
+else
+    echo -e "没有参数!\n"
+fi
+        
